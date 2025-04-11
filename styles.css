@@ -30,7 +30,7 @@ header h1 {
     margin: 0 auto;
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
     gap: 2rem;
 }
 
@@ -131,12 +131,94 @@ footer {
 .slide-card:nth-child(10) { --card-color: #3498db; --card-color-rgb: 52, 152, 219; }
 
 /* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+}
+
 @media screen and (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 column for small screens */
     }
     
     header h1 {
         font-size: 2rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    header {
+        background-color: white;
+        color: #2c3e50;
+        box-shadow: none;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #2c3e50;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for print */
+        gap: 0.8rem;
+    }
+
+    .slide-card {
+        break-inside: avoid; /* Prevent cards from breaking across pages */
+        box-shadow: none;
+        border: 1px solid black; /* Black border for print */
+        margin-bottom: 0.8rem;
+        /* Maintain the color border */
+        border-top: 4px solid var(--card-color);
+    }
+
+    .slide-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .slide-card h2 {
+        font-size: 1rem;
+        min-height: auto;
+        padding: 0.8rem 0.8rem 0.5rem;
+    }
+    
+    .slide-number {
+        width: 24px;
+        height: 24px;
+        font-size: 0.9rem;
+        /* Maintain the original background color */
+        background-color: var(--card-color);
+        color: white;
+    }
+
+    /* Keep original keyword styling with colors */
+    .keyword {
+        background-color: rgba(var(--card-color-rgb, 0, 0, 0), 0.1);
+        color: var(--card-color);
+    }
+    
+    footer {
+        background-color: white;
+        color: #2c3e50;
+        border-top: 1px solid #ddd;
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+    
+    /* Optimize images for print */
+    .image-container img {
+        max-width: 80px;
+        max-height: 80px;
     }
 }
