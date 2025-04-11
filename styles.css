@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.slide-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-top: 5px solid var(--card-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slide-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--card-color);
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.slide-card h2 {
+    padding: 1.5rem 1rem 1rem;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-left: 40px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content {
+    padding: 0 1rem 1.5rem;
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.keyword {
+    background-color: rgba(var(--card-color-rgb, 0, 0, 0), 0.1);
+    color: var(--card-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--card-color);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.image-container img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Color variables */
+.slide-card:nth-child(1) { --card-color: #3498db; --card-color-rgb: 52, 152, 219; }
+.slide-card:nth-child(2) { --card-color: #2ecc71; --card-color-rgb: 46, 204, 113; }
+.slide-card:nth-child(3) { --card-color: #9b59b6; --card-color-rgb: 155, 89, 182; }
+.slide-card:nth-child(4) { --card-color: #e74c3c; --card-color-rgb: 231, 76, 60; }
+.slide-card:nth-child(5) { --card-color: #e67e22; --card-color-rgb: 230, 126, 34; }
+.slide-card:nth-child(6) { --card-color: #f1c40f; --card-color-rgb: 241, 196, 15; }
+.slide-card:nth-child(7) { --card-color: #1abc9c; --card-color-rgb: 26, 188, 156; }
+.slide-card:nth-child(8) { --card-color: #27ae60; --card-color-rgb: 39, 174, 96; }
+.slide-card:nth-child(9) { --card-color: #8e44ad; --card-color-rgb: 142, 68, 173; }
+.slide-card:nth-child(10) { --card-color: #3498db; --card-color-rgb: 52, 152, 219; }
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
